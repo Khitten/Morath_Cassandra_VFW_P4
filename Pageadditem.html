@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- Cassandra Morath -->
+<!-- vfw 1306 -->
+<!-- Project 2 -->
+<!--06/06/13-->
+<html>
+<head> <!--Users will not see any of the content in the head-->
+     <!-- meta content. -->
+<meta charset="UTF-8" />
+        <meta name="description" content="A portfolio for groomers." />
+        <meta name="keywords" content="groomer, portfolio, grooming, dog" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+        <link href="CSS/style.css" type="text/css" rel="stylesheet">
+        <!-- This application will give a groomer the ability to keep client information on dogs they groom. (At some point I would like to include before and after pictures and more detailed information about the client) -->
+<title>Groomer's Portfolio</title>
+    </head>
+		<body> <!--Users will see the content in the body tag-->
+			<header><h1 id "header">My Grooming Portfolio</h1></header><!--Header-->
+        	<!--Form-->
+            <b>Submit or clear all fields</b>
+            <nav>
+            	<a href = "#" id="clear">Clear Stored Data </br></a>
+                <a href = "#" id="display">Show Data </a>
+                <a href = "Pageadditem.html" id="addNew" style="display:none;"> Add New Item</a>
+            </nav>
+         	<form action="#"method="post" id="clientInformation">
+            	<fieldset id="ownerFieldSet">
+            	<legend>About The Owner</legend>
+                <span>* fields are required.</span>
+                <ul id="errors"></ul>
+           			 <h2>Owner's Name</h2><!--Text Area-->
+            <ul id="ownerInformation">
+            	<li><label for="oname">* Owner's Name:</label><input type="text" id="oname" /></li>
+            	<li><label for="onotes">Owner Notes:</label><textarea id="onotes"></textarea></li>
+            </ul>
+            </fieldset>
+            <fieldset id="petFieldSet">
+            <legend>About The Pet</legend>
+            <h2>Pet's Name</h2> <!--Text Area-->
+            <ul>
+             	<li><label for="pname">* Pet's Name:</label><input type="text" id="pname" /></li>
+             	<li><label for="pnotes"></label>Pet Notes:<textarea id="pnotes"></textarea></li>
+            		<h3>Breed</h3><!--Optgroup-->
+                <li><label for="breed">* What is the pet's breed?</label>
+                 	<select id="breed"><!--
+                         <optgroup label="Dogs">
+                         <option value="small">small</option>
+                         <option value="medium">medium</option>
+                         <option value="large">large</option>
+                         </optgroup>
+                         <optgroup label="Cats">
+                         <option value="Domestic Short Hair">domestic short-haired</option>
+                         <option value="Domestic Long Hair">domestic long-haired</option>
+                         </optgroup>-->
+                      </select>
+                  </li>
+             </ul>
+             <h3>Male or Female</h3> <!--Radio Button-->
+             <ul>
+                <li>Is the pet male or female?:
+              		<ul>
+                		<li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male">Male</label></li>
+                		<li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female">Female</label></li>
+                		<li><input type="radio" checked value="Neutered" id="neutered" name="sex" /><label for="neutered">Neutered</label></li>
+                		<li><input type="radio" checked value="Spayed" id="spayed" name="sex" /><label for="spayed">Spayed</label></li>
+                		<li><input type="radio" checked value="Unknown" id="unknown" name="sex" /><label for="unknown">Unknown</label></li>
+   					</ul> 
+                  </li>
+                </ul>
+            </fieldset>
+            <fieldset id="groomFieldSet">
+            <legend>About The Groom</legend>
+            <h4>Date Groomed</h4><!--Date-->
+            <ul>
+               <li>Date of Groom: <input type="date" name="gdate" id="gdate"></li>
+            <h4>Difficulty</h4><!--Range -->
+            <b>On a scale from 1 to 10, how difficult was the groom?</b>
+            <li><input type="range" name="points" min="1" max="10" id="slider"></li>
+                <input type="hidden" value="true" />
+            <li><label for="gnotes">Grooming Notes:</label><textarea id="gnotes"></textarea></li>
+            </ul>
+            </fieldset>
+            <input type="submit" value="Submit Data" id="store" /><br />
+            <!--<nav><a href = "#" id="store">Submit Data </br></a></nav>-->
+        </form>
+        <script src="javascript/main.js"></script> 
+</body>
+</html>
+<!-- want to add a boolean value. "Will you groom this pet again?" Yes or No. If the answer is no, it changes the pet info to red when viewed. -->
