@@ -82,7 +82,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in local storage.");
+			alert("There is no data in local storage so default data was added.");
+			autoPopulate();
 			}
 		//Write data from local storage
 		var makeDiv = document.createElement("div");
@@ -101,16 +102,37 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value); 
 			var makeSubList = document.createElement("ul")
 			makeli.appendChild(makeSubList);
+			getImage(obj.breed[1], makeSubList);
 			for (var n in obj){
 				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli);
-				var optSubText = obj[n][0] + " "+ obj[n][1];
+				var optSubText = obj[n][0] + " " + obj[n][1];
 				makeSubli.innerHTML = optSubText;
 				makeSubList.appendChild(linksli);
 			}
-			makeItemLinks(localStorage.key(i), linksli); //create our edit and delete buttons/link for each item in local storage
+			makeItemLinks(localStorage.key(i), linksli); 
+			//create our edit and delete buttons and link for each item in local storage
 		}
 	}
+	
+	//get the image for the righ category
+	function getImage(cataName, makeSubList){
+		var imageLi = document.createElement("li");
+		makeSubList.appendChild(imageLi);
+		var newImage = document.createElement("img");
+		var setSrc = newImage.setAttribute("src", "IMG/" + cataName + ".png");
+		imageLi.appendChild(newImage);	
+	}
+	
+	//Auto populate local storage.
+	function autoPopulate(){
+		//Store the JSON object into local storage.
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}
+	
 	//make item links function
 	//Create the edit and delete linksfor each stored item displayed.
 	function makeItemLinks(key, linksli){
