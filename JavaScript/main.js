@@ -171,17 +171,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("oname").value = item.oname[1];
 		$("pname").value = item.pname[1];
 		$("breed").value = item.breed[1];
-		var radios = document.forms[0].sex;
+		var radios = document.forms[1].sex;
 		for (var i=0; i<radios.length; i++){
-			if(radios[i].value == "Male" && item.sex[1] == "Male"){
+			if(radios[i].value === "Male" && item.sex[1] === "Male"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Female" && item.sex[1] == "Female"){
+			}else if(radios[i].value === "Female" && item.sex[1] === "Female"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Neutered" && item.sex[1] == "Neutered"){
+			}else if(radios[i].value === "Neutered" && item.sex[1] === "Neutered"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Spayed" && item.sex[1] == "Spayed"){
+			}else if(radios[i].value === "Spayed" && item.sex[1] === "Spayed"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Unknown" && item.sex[1] == "Unknown"){
+			}else if(radios[i].value === "Unknown" && item.sex[1] === "Unknown"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
