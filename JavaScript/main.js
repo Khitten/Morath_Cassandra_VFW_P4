@@ -171,7 +171,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("oname").value = item.oname[1];
 		$("pname").value = item.pname[1];
 		$("breed").value = item.breed[1];
-		var radios = document.forms[1].sex;
+		var radios = document.forms[0].sex;
 		for (var i=0; i<radios.length; i++){
 			if(radios[i].value === "Male" && item.sex[1] === "Male"){
 				radios[i].setAttribute("checked", "checked");
